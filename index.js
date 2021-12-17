@@ -152,3 +152,14 @@ function replyClick(clicked_id, parent_id)
    }
 }
 
+window.addEventListener('resize', function(){
+    this.alert("DO NOT CHANGE THE DEVICE");
+})
+
+window.onbeforeunload =(e) => {
+    e = e || window.event;
+    if (e) {
+        e.returnValue = 'Sure?';
+    }
+    return 'Sure?';
+    };
