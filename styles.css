@@ -1,0 +1,40 @@
+
+
+body{
+    text-align: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.box{
+    height: 150px;
+    width: 150px;
+    border: 2px solid #000;
+    text-align: center;
+    margin: 10px;
+}
+
+.logo{
+    width: 90%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+}
+
+.star{
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.star-filled{
+    color: yellow;
+    fill: yellow;
+}
+
