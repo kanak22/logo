@@ -119,7 +119,7 @@ for(let j=0; j<size; j++){
     
 };
 
-
+var data = [];
 var star1=0, star2=0, star3=0, star4=0, star5=0;
 //have to continue with getting the id by click
 function replyClick(clicked_id, parent_id)
@@ -129,6 +129,8 @@ function replyClick(clicked_id, parent_id)
     console.log(parent)
     // console.log(parent.getElementsByClassName("star"))
     
+    
+
     if(clicked_id === '1'){
         star1++;
     } else if(clicked_id === '2'){
@@ -142,13 +144,19 @@ function replyClick(clicked_id, parent_id)
     }
     console.log(star1, star2, star3, star4, star5);
 
+    var obj = { "parent_id": clicked_id  }
+    data.push(obj);
+
+    for(let u=0; u<data.length; u++){
+        console.log(data[u])
+    }
 
    //making the stars yellow 
    const stars = parent.getElementsByClassName("star");
    for(let i=0; i<clicked_id; i++){
     stars[i].innerHTML="&#9733;"   
     stars[i].classList.add("star-filled")
-       console.log(stars[i]);
+    //    console.log(stars[i]);
    }
 }
 
@@ -156,10 +164,19 @@ window.addEventListener('resize', function(){
     this.alert("DO NOT CHANGE THE DEVICE");
 })
 
-window.onbeforeunload =(e) => {
-    e = e || window.event;
-    if (e) {
-        e.returnValue = 'Sure?';
-    }
-    return 'Sure?';
-    };
+
+function pageScroll1() {
+    if(window.scrollY > 870) return;
+    window.scrollBy(0,1);
+    scrolldelay = setTimeout(pageScroll1,10);
+    
+}
+
+function pageScroll() {
+        window.scrollBy(0,1);
+        var time = (numOfLogos/size)*2;
+        scrolldelay = setTimeout(pageScroll,time);
+}
+// console.log(numOfLogos*2)
+pageScroll1();
+pageScroll();
