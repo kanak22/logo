@@ -119,7 +119,7 @@ let images = ["https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Bran
   "https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/hermes-logo.png",
   "https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/nescafe-logo.png",
 "https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/frito-lay-logo.png",
-"https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/audi-logo.png"
+"https://s3.amazonaws.com/cdn.designcrowd.com/blog/100-Famous-Brand%20Logos-From-The-Most-Valuable-Companies-of-2020/audi-logo.png",
 ]
 
 //number of rows
@@ -130,6 +130,8 @@ var count=0;
 for(let j=0; j<size; j++){
     //row creation
     var row = document.createElement("div");
+    let rowId = "row" + j;
+    row.setAttribute('id', rowId);
     row.className = "row";
 
     // loop for adding 8 logos in a row
@@ -167,7 +169,8 @@ for(let j=0; j<size; j++){
 
         // adding div to row
         row.appendChild(div);
- 
+        var con = document.getElementById("con");
+        con.appendChild(row);
         // increasing the count to make it point to the next link in images array
         count++;
     }
@@ -186,8 +189,6 @@ function replyClick(clicked_id, parent_id)
     console.log(parent)
     // console.log(parent.getElementsByClassName("star"))
     
-    
-
     if(clicked_id === '1'){
         star1++;
     } else if(clicked_id === '2'){
@@ -201,7 +202,8 @@ function replyClick(clicked_id, parent_id)
     }
     console.log(star1, star2, star3, star4, star5);
 
-    var obj = { "parent_id": clicked_id  }
+    var obj = { "parent":parent,
+    "star_clicked": clicked_id  }
     data.push(obj);
 
     for(let u=0; u<data.length; u++){
@@ -222,17 +224,18 @@ window.addEventListener('resize', function(){
 })
 
 
-function pageScroll1() {
-    if(window.scrollY > 870) return;
-    window.scrollBy(0,1);
-    scrolldelay = setTimeout(pageScroll1,10);
-    
+
+function survey(){
+    document.getElementById("survey").style.display = "none";
+    var lg = document.getElementById("con");
+    window.scrollTo(0,1050)
+    pageScroll();
 }
 
 function pageScroll() {
         if(numOfLogos == 2){
             window.scrollBy(0,1);
-        scrolldelay = setTimeout(pageScroll,19);
+            scrolldelay = setTimeout(pageScroll,20);
         } else if(numOfLogos == 4){
             window.scrollBy(0,1);
             scrolldelay = setTimeout(pageScroll,37);
@@ -241,6 +244,13 @@ function pageScroll() {
             scrolldelay = setTimeout(pageScroll,70);
         }
 }
-console.log(numOfLogos*2)
-pageScroll1();
-pageScroll();
+console.log(numOfLogos*2);
+
+function infoScroll(){
+    if(window.scrollY <800){
+        window.scrollBy(0,1.25);
+    scrolldelay = setTimeout(infoScroll,1);
+    }
+}
+
+infoScroll();

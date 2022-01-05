@@ -8,16 +8,14 @@ body{
 }
 
 .container{
-    height: 100%;
+    height: 500px;
     margin-top: 700px;
-    margin-bottom: 150px;
     font-size: 30px;
 }
 
 @media screen and (max-width: 640px) {
     .container{
         font-size: 18px;
-        margin-bottom: 200px;
     }
 }
 
@@ -33,7 +31,7 @@ body{
     width: 140px;
     border: 2px solid #000;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
 }
 
 .logo{
@@ -55,3 +53,29 @@ body{
     fill: yellow;
 }
 
+.btn {
+    background: #3476d9;
+    background-image: -webkit-linear-gradient(top, #3476d9, #2b5ab8);
+    background-image: -moz-linear-gradient(top, #3476d9, #2b5ab8);
+    background-image: -ms-linear-gradient(top, #3476d9, #2b5ab8);
+    background-image: -o-linear-gradient(top, #3476d9, #2b5ab8);
+    background-image: linear-gradient(to bottom, #3476d9, #2b5ab8);
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 60px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: #3c83fc;
+    background-image: -webkit-linear-gradient(top, #3c83fc, #3479d9);
+    background-image: -moz-linear-gradient(top, #3c83fc, #3479d9);
+    background-image: -ms-linear-gradient(top, #3c83fc, #3479d9);
+    background-image: -o-linear-gradient(top, #3c83fc, #3479d9);
+    background-image: linear-gradient(to bottom, #3c83fc, #3479d9);
+    text-decoration: none;
+  }
